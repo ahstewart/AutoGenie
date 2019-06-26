@@ -1,0 +1,402 @@
+<!--this is the code for an auto parts search aggregator website-->
+<html>
+<head>
+	<title>Auto Genie</title>
+
+<style>
+input, button {
+	display: block;
+	margin: auto;
+	}
+input:hover {
+	background-color:gray;
+}
+button:hover {
+	background-color:gray;
+}
+button:
+</style>
+
+</head>
+
+<body>
+	<h1 align='center'>Auto Genie</h1>
+	<h5 align='center'>
+		<p><i>A Modern Auto Parts Solution</i></p>
+	</h5>
+	</br>
+
+	<form id='year'>
+	<fieldset>
+	<legend>Choose Model Year</legend>
+	<input type='button' id='1950' value='1950' name=''></input>
+ 	<input type='button' id='1951' value='1951' name=''></input>
+	<input type='button' id='1952' value='1952' name=''></input>
+	</fieldset>
+	</form>
+	</br>
+
+	<form id='make' hidden=True>
+	<fieldset>
+	<legend>Choose Make</legend>
+	<input type='button' id = 'ford' value='Ford' name=''></input>
+	<input type='button' id = 'buick' value='Buick' name=''></input>
+	<input type='button' id = 'dodge' value='Dodge' name=''></input>
+	</fieldset>
+	</form>
+	</br>
+
+		<form id='ford_models' hidden=True>
+		<fieldset>
+		<legend>Choose Model</legend>
+		<button id = 'tbird' type='button'>Thunderbird</button>
+		<button id = 'f150' type='button'>F-150</button>
+		<button id = 'falcon' type='button'>Falcon</button>
+		</fieldset>
+		</form>
+		
+		<form id='buick_models' hidden=True>
+		<fieldset>
+		<legend>Choose Model</legend>
+		<button id = 'lesabre' type='button'>LeSabre</button>
+		<button id = 'century' type='button'>Century</button>
+		<button id = 'regal' type='button'>Regal</button>
+		</fieldset>
+		</form>
+		
+		<form id='dodge_models' hidden=True>
+		<fieldset>
+		<legend>Choose Model</legend>
+		<button id = 'dart' type='button'>Dart</button>
+		<button id = 'omni' type='button'>Omni</button>
+		<button id = 'charger' type='button'>Charger</button>
+		</fieldset>
+		</form>
+
+	<form id='carSelection' hidden=True>
+	<legend>Car Selection</legend>
+	<textarea id='carChoice' rows=1 cols=80 wrap='hard'>
+	</textarea>
+	</form>
+
+	<form id='resetButton' hidden=True>
+	<input type='submit' id='reset' value='Reset' name=''></input>
+	</form> 
+	
+
+<script>
+var clickCheck_1950 = -1;
+var clickCheck_1951 = -1;
+var clickCheck_1952 = -1;
+var year = NaN;
+var make = NaN;
+var model = NaN;
+
+document.getElementById('1950').onclick = function() {
+clickCheck_1950 *= -1;
+if (document.getElementById('make').style.display == "none") {
+	document.getElementById('make').style.display = "block";
+}
+else if (clickCheck_1950 == 1 | clickCheck_1951 == 1 | clickCheck_1952 == 1) {
+	document.getElementById('make').style.display = "block";		
+}
+else {
+	document.getElementById('make').style.display = "none";
+}
+
+document.getElementById('1951').value = '1951';
+document.getElementById('1952').value = '1952';
+
+if (clickCheck_1951 == 1) {
+	clickCheck_1951 *= -1;
+}
+if (clickCheck_1952 == 1) {
+	clickCheck_1952 *= -1;
+}
+if (clickCheck_1950 == 1) {
+	document.getElementById('1950').style.backgroundColor = "gray";
+	year = 1950;
+}
+else {
+	document.getElementById('1950').value = '1950';
+	document.getElementById('1950').style.backgroundColor = "transparent";	
+	year = NaN;
+}
+
+if (clickCheck_1950 == -1 | clickCheck_1951 == -1 | clickCheck_1952 == -1) {
+	document.getElementById('ford_models').style.display = "none";
+	document.getElementById('buick_models').style.display = "none";
+	document.getElementById('dodge_models').style.display = "none";
+}
+}
+
+
+
+document.getElementById('1951').onclick = function() {
+clickCheck_1951 *= -1;
+
+if (document.getElementById('make').style.display == "none") {
+	document.getElementById('make').style.display = "block";
+}
+else if (clickCheck_1950 == 1 | clickCheck_1951 == 1 | clickCheck_1952 == 1) {
+	document.getElementById('make').style.display = "block";
+}
+else {
+	document.getElementById('make').style.display = "none";
+}
+
+document.getElementById('1950').value = '1950';
+document.getElementById('1952').value = '1952';
+
+if (clickCheck_1950 == 1) {
+	clickCheck_1950 *= -1;
+}
+if (clickCheck_1952 == 1) {
+	clickCheck_1952 *= -1;
+}
+if (clickCheck_1951 == 1) {
+	document.getElementById('1951').style.backgroundColor = "gray";
+	year = 1951;
+}
+else {
+	document.getElementById('1951').value = '1951';
+	document.getElementById('1951').style.backgroundColor = "transparent";
+	year = NaN;
+}
+
+if (clickCheck_1950 == -1 | clickCheck_1951 == -1 | clickCheck_1952 == -1) {
+	document.getElementById('ford_models').style.display = "none";
+	document.getElementById('buick_models').style.display = "none";
+	document.getElementById('dodge_models').style.display = "none";
+}
+}
+
+
+
+document.getElementById('1952').onclick = function() {
+clickCheck_1952 *= -1;
+
+if (document.getElementById('make').style.display == "none") {
+	document.getElementById('make').style.display = "block";
+}
+else if (clickCheck_1950 == 1 | clickCheck_1951 == 1 | clickCheck_1952 == 1) {
+	document.getElementById('make').style.display = "block";
+}
+else {
+	document.getElementById('make').style.display = "none";
+}
+
+document.getElementById('1951').value = '1951';
+document.getElementById('1950').value = '1950';
+
+if (clickCheck_1951 == 1) {
+	clickCheck_1951 *= -1;
+}
+if (clickCheck_1950 == 1) {
+	clickCheck_1950 *= -1;
+}
+if (clickCheck_1952 == 1) {
+	document.getElementById('1952').style.backgroundColor = "gray";
+	year = 1952;
+}
+else {
+	document.getElementById('1952').value = '1952';
+	document.getElementById('1952').style.backgroundColor = "transparent";
+	year = NaN;
+}
+
+if (clickCheck_1950 == -1 | clickCheck_1951 == -1 | clickCheck_1952 == -1) {
+	document.getElementById('ford_models').style.display = "none";
+	document.getElementById('buick_models').style.display = "none";
+	document.getElementById('dodge_models').style.display = "none";
+}
+}
+
+
+
+
+var clickCheck_ford = -1;
+var clickCheck_buick = -1;
+var clickCheck_dodge = -1;
+
+document.getElementById('ford').onclick = function() {
+clickCheck_ford *= -1;
+
+document.getElementById('buick').value = 'Buick';
+document.getElementById('dodge').value = 'Dodge';
+
+if (clickCheck_buick == 1) {
+	clickCheck_buick *= -1;
+}
+if (clickCheck_dodge == 1) {
+	clickCheck_dodge *= -1;
+}
+if (clickCheck_ford == 1) {
+	document.getElementById('ford').value = 'clicked';
+	make = "Ford"; 
+}
+else {
+	document.getElementById('ford').value = 'Ford';
+	make = NaN;
+}
+
+if (clickCheck_ford == 1) {
+document.getElementById('ford_models').style.display = "block";
+document.getElementById('buick_models').style.display = "none";
+document.getElementById('dodge_models').style.display = "none";
+}
+else if (clickCheck_buick == 1) {
+document.getElementById('ford_models').style.display = "none";
+document.getElementById('buick_models').style.display = "block";
+document.getElementById('dodge_models').style.display = "none";
+}
+else if (clickCheck_dodge == 1) {
+document.getElementById('ford_models').style.display = "none";
+document.getElementById('buick_models').style.display = "none";
+document.getElementById('dodge_models').style.display = "block";
+}
+else {
+document.getElementById('ford_models').style.display = "none";
+document.getElementById('buick_models').style.display = "none";
+document.getElementById('dodge_models').style.display = "none";
+}
+}
+
+
+
+document.getElementById('buick').onclick = function() {
+clickCheck_buick *= -1;
+
+document.getElementById('ford').value = 'Ford';
+document.getElementById('dodge').value = 'Dodge';
+
+if (clickCheck_ford == 1) {
+	clickCheck_ford *= -1;
+}
+if (clickCheck_dodge == 1) {
+	clickCheck_dodge *= -1;
+}
+if (clickCheck_buick == 1) {
+	document.getElementById('buick').value = 'clicked';
+	make = "Buick";
+}
+else {
+	document.getElementById('buick').value = 'Buick';
+	make = NaN;
+}
+
+if (clickCheck_ford == 1) {
+document.getElementById('ford_models').style.display = "block";
+document.getElementById('buick_models').style.display = "none";
+document.getElementById('dodge_models').style.display = "none";
+}
+else if (clickCheck_buick == 1) {
+document.getElementById('ford_models').style.display = "none";
+document.getElementById('buick_models').style.display = "block";
+document.getElementById('dodge_models').style.display = "none";
+}
+else if (clickCheck_dodge == 1) {
+document.getElementById('ford_models').style.display = "none";
+document.getElementById('buick_models').style.display = "none";
+document.getElementById('dodge_models').style.display = "block";
+}
+else {
+document.getElementById('ford_models').style.display = "none";
+document.getElementById('buick_models').style.display = "none";
+document.getElementById('dodge_models').style.display = "none";
+}
+}
+
+
+
+document.getElementById('dodge').onclick = function() {
+clickCheck_dodge *= -1;
+
+document.getElementById('buick').value = 'Buick';
+document.getElementById('ford').value = 'Ford';
+
+if (clickCheck_buick == 1) {
+	clickCheck_buick *= -1;
+}
+if (clickCheck_ford == 1) {
+	clickCheck_ford *= -1;
+}
+if (clickCheck_dodge == 1) {
+	document.getElementById('dodge').value = 'clicked';
+	make = "Dodge";
+}
+else {
+	document.getElementById('dodge').value = 'Dodge';
+	make = NaN;
+}
+
+if (clickCheck_ford == 1) {
+document.getElementById('ford_models').style.display = "block";
+document.getElementById('buick_models').style.display = "none";
+document.getElementById('dodge_models').style.display = "none";
+}
+else if (clickCheck_buick == 1) {
+document.getElementById('ford_models').style.display = "none";
+document.getElementById('buick_models').style.display = "block";
+document.getElementById('dodge_models').style.display = "none";
+}
+else if (clickCheck_dodge == 1) {
+document.getElementById('ford_models').style.display = "none";
+document.getElementById('buick_models').style.display = "none";
+document.getElementById('dodge_models').style.display = "block";
+}
+else {
+document.getElementById('ford_models').style.display = "none";
+document.getElementById('buick_models').style.display = "none";
+document.getElementById('dodge_models').style.display = "none";
+}
+}
+
+
+
+var model = NaN;
+
+var clickCheck_model = document.getElementsByTagName('button');
+
+for (i=0; i < clickCheck_model.length; i++) {
+	clickCheck_model[i].onclick = function() {
+		model = this.innerHTML;
+		if (year != NaN & make != NaN & model != NaN) {
+			document.getElementById('ford_models').style.display = "none";
+			document.getElementById('buick_models').style.display = "none";
+			document.getElementById('dodge_models').style.display = "none";
+			document.getElementById('year').style.display = "none";
+			document.getElementById('make').style.display = "none";
+			document.getElementById('carSelection').style.display = "block";
+			document.getElementById('resetButton').hidden = false;
+			document.getElementById('carChoice').innerHTML = "You have chosen a " + year + " " + make + " " + model + "!";
+		}
+	}
+}
+
+
+
+
+document.getElementById('reset').onclick = function() {
+	document.getElementById('ford_models').style.display = "none";
+	document.getElementById('buick_models').style.display = "none";
+	document.getElementById('dodge_models').style.display = "none";
+	document.getElementById('year').style.display = "block";
+	document.getElementById('make').style.display = "none";
+	document.getElementById('carSelection').style.display = "none";
+	document.getElementById('resetButton').hidden = true;
+	year = NaN;
+	make = NaN;
+	model = NaN;
+	clickCheck_1950 = -1;
+	clickCheck_1951 = -1;
+	clickCheck_1952 = -1;
+	clickCheck_ford = -1;
+	clickCheck_buick = -1;
+	clickCheck_dodge = -1;
+}
+
+</script>
+
+</body>
+</html>
